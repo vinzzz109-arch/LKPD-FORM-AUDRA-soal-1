@@ -1,19 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Form Login</title>
-    <link rel="stylesheet" href="style1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Login dan Registrasi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="box">
-        <h2>Form Login</h2>
-        <form>
-            <input type="email" placeholder="Masukkan email" required>
-            <input type="password" placeholder="Masukkan password" required>
-            <p class="link"><a href="#">Lupa Password ?</a></p>
-            <button type="submit">Login</button>
-            <p class="bottom">Belum punya akun? <a href="register.html">Daftar.</a></p>
-        </form>
+
+    <div class="container">
+
+        <!-- FORM LOGIN -->
+        <div class="form-box" id="loginForm">
+            <h2>Form Login</h2>
+
+            <form>
+                <input type="email" placeholder="Masukkan email" required>
+                <input type="password" placeholder="Masukkan password" required>
+
+                <a href="#" class="forgot">Lupa Password?</a>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p>Belum punya akun?
+                <a href="#" onclick="showRegister(event)">Daftar</a>
+            </p>
+        </div>
+
+        <!-- FORM REGISTRASI -->
+        <div class="form-box" id="registerForm" style="display: none;">
+            <h2>Form Registrasi</h2>
+
+            <form>
+                <input type="email" placeholder="Masukkan email" required>
+                <input type="password" placeholder="Masukkan password" required>
+                <input type="password" placeholder="Masukkan ulang password" required>
+
+                <button type="submit">Daftar</button>
+            </form>
+
+            <p>Sudah punya akun?
+                <a href="#" onclick="showLogin(event)">Login</a>
+            </p>
+        </div>
+
     </div>
+
+    <script>
+        function showRegister(event) {
+            event.preventDefault();
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+        }
+
+        function showLogin(event) {
+            event.preventDefault();
+            document.getElementById("registerForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }
+    </script>
+
 </body>
 </html>
